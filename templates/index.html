@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>EV Charger Locator</title>
+    <link rel='stylesheet' href='{{ url_for('static', filename='styles.css') }}'>
+</head>
+<body>
+    <h1>EV Charger Locator & To-Do List</h1>
+    <div id='map'></div>
+    <form id='todo-form'>
+        <input type='text' name='content' placeholder='Add To-Do' required>
+        <button type='submit'>Add</button>
+    </form>
+    <ul id='todo-list'>
+        {% for todo in todos %}
+        <li>{{ todo.task }}</li>
+        {% endfor %}
+    </ul>
+    <script src='https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY'></script>
+    <script src='{{ url_for('static', filename='main.js') }}'></script>
+</body>
+</html>
